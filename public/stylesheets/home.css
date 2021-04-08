@@ -1,0 +1,71 @@
+.site-header-inner {
+position: relative;
+display: flex;
+justify-content: space-between;
+align-items: center
+}
+.m-0 {
+margin: 0
+}
+.d-block{
+border-radius: 15px 50px;
+}
+.container{
+padding-top: 10%;
+bottom: 20px;
+}
+.square{
+position:relative;
+width: 500px;
+height: 450px;
+background: rgb(218,34,255,0.5);  /* fallback for old browsers */
+/*opacity: 0.5;*/
+/*background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);*/  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to right, #9733EE, #DA22FF); *//* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+transform: rotate(315deg);
+border-radius: 60% 80% 100% 100%;
+}
+
+.triangle {
+margin: auto;
+  width: 0; 
+  height: 0; 
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid  #0f0c29 ;
+}
+
+.main{
+background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+padding-bottom: 40px;
+
+}
+.color{
+	color : white;
+}
+
+
+.content{
+	transform: rotate(45deg);
+	color:white;
+	padding-left: 180px;
+}
+
+.temp{
+	padding-top: 70px;
+	transform: rotate(45deg);
+	color: white;
+
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
+}
+
+body
+{
+	font-family: 'Nunito', sans-serif;
+
+}
