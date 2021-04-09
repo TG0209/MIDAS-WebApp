@@ -1,3 +1,4 @@
+//user model
 var mongoose = require("mongoose");
 var passportLocal = require("passport-local-mongoose");
 

@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 	</head>
 	<body>
-			<nav class="navbar fixed-top navbar-expand-lg  navbar-dark">
+		<nav class="navbar fixed-top navbar-expand-lg  navbar-dark">
 			<div class="site-header-inner">
 				<div class="brand header-brand">
 					<h1 class="m-0">
@@ -53,13 +53,13 @@
 		</nav>
 		<div class="container">
 			<% if(error && error.length > 0){ %>
-				<div class="alert alert-danger" role="alert">
-					<%= error %>
-				</div>
+			<div class="alert alert-danger" role="alert">
+				<%= error %>
+			</div>
 			<% } %>
 			<% if(success && success.length > 0){ %>
-				<div class="alert alert-success" role="alert">
-					<%= success %>
-				</div>
+			<div class="alert alert-success" role="alert">
+				<%= success %>
+			</div>
 			<% } %>
-    	</div>
+		</div>

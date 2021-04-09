@@ -1,3 +1,4 @@
+//import libraries
 var express = require("express");
 var passport = require("passport");
 var localStrat = require("passport-local");
@@ -12,6 +13,8 @@ var crypto = require("crypto");
 var flash  = require("connect-flash");
 var PORT   = process.env.PORT || 3000;
 
+
+//intial setup for app
 
 app.use(require("express-session")({
 	secret:"this is a secret",
@@ -52,15 +55,18 @@ app.use(function(req,res,next){
 
 // Routes
 
+//index route redirect to home page
 app.get("/",function(req,res){
-	res.redirect("\home");
+	res.redirect("/home");
 });
 
+//home rate
 app.get("/home",function(req,res){
 	res.render("home");	
 	
 });
 
+//main page after login
 app.get("/secret",isLoggedIn,function(req,res){
 	res.render("secret");
 });
@@ -71,7 +77,7 @@ app.get("/register",function(req,res){
 	res.render("register");
 });
 
-// add user
+// add user to the database
 app.post("/register",function(req,res){
 	var newUser = new User({
         username: req.body.username,
@@ -103,18 +109,18 @@ app.post("/login",passport.authenticate("local",{
 });
 
 // logout
-
 app.get("/logout",function(req,res){
 	req.logout();
 	 req.flash('success', 'you have successfuly loged out');
 	res.redirect("/home");
 });
 
-// forgot password
+// forgot password form
 app.get('/forgot', function(req, res) {
   res.render('forgot');
 });
 
+//forgot password logic
 app.post('/forgot', function(req, res, next) {
   async.waterfall([
     function(done) {
@@ -131,7 +137,7 @@ app.post('/forgot', function(req, res, next) {
         }
 
         user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour - token valid limit send to reset the password
 
         user.save(function(err) {
           done(err, token, user);
@@ -168,6 +174,7 @@ app.post('/forgot', function(req, res, next) {
   });
 });
 
+//form to set new password
 app.get('/reset/:token', function(req, res) {
   User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
     if (!user) {
@@ -178,6 +185,7 @@ app.get('/reset/:token', function(req, res) {
   });
 });
 
+//new password setup logic
 app.post('/reset/:token', function(req, res) {
   async.waterfall([
     function(done) {
@@ -229,8 +237,7 @@ app.post('/reset/:token', function(req, res) {
 });
 
 
-// middleware
-
+// middleware - to chech if a user is autheticated
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
 		return next();
@@ -239,7 +246,7 @@ function isLoggedIn(req,res,next){
 
 }
 
-
+//listen route
 app.listen(PORT,function(){
 	console.log("sever started!!");
 });
